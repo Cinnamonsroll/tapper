@@ -1,6 +1,6 @@
 "use client"
 import { DrawerSettings } from "@/components/drawer";
-import { colors } from "@/utils/colors";
+
 import React, { useEffect, useState } from "react";
 import { Drawer } from "vaul";
 
@@ -30,6 +30,15 @@ const updateData = (newData: typeof defaultData) => {
 };
 
 export default function Home() {
+  const colors: {[key: string]: string} = {
+    "red": "bg-red-600",
+    "rose": "bg-rose-600",
+    "orange": "bg-orange-600",
+    "yellow": "bg-yellow-600",
+    "green": "bg-green-600",
+    "blue": "bg-blue-600",
+    "purple": "bg-violet-600",
+  }
   const [data, setData] = useState(getData());
 
   useEffect(() => {
@@ -52,9 +61,7 @@ export default function Home() {
     updateData(newData);
 
     if (typeof window !== 'undefined' && 'vibrate' in window.navigator) {
-      window.navigator.vibrate([
-        100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100,
-      ]);
+      window.navigator.vibrate(30);
     }
 
     setData(newData);
