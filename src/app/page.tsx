@@ -45,27 +45,35 @@ export default function Home() {
     setData(getData());
   }, []);
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = (event: any) => {
     const { clientX, clientY } = event;
-    const ripple = document.createElement("div");
-    ripple.classList.add("ripple", "p-10");
-    ripple.style.left = `${clientX}px`;
-    ripple.style.top = `${clientY}px`;
-    document.body.appendChild(ripple);
-
-    setTimeout(() => {
-      ripple.remove();
-    }, 600);
-
-    const newData = { ...data, count: data.count + 1 };
-    updateData(newData);
-
-    if (typeof window !== 'undefined' && 'vibrate' in window.navigator) {
-      window.navigator.vibrate(30);
+  
+    // Check if any ripple element is present at the click coordinates
+    const rippleElement = document.elementFromPoint(clientX, clientY);
+    const isRippleClicked = rippleElement && rippleElement.classList.contains('ripple');
+  
+    if (!isRippleClicked) {
+      const ripple = document.createElement("div");
+      ripple.classList.add("ripple", "p-10");
+      ripple.style.left = `${clientX}px`;
+      ripple.style.top = `${clientY}px`;
+      document.body.appendChild(ripple);
+  
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+  
+      const newData = { ...data, count: data.count + 1 };
+      updateData(newData);
+  
+      if (typeof window !== 'undefined' && 'vibrate' in window.navigator) {
+        window.navigator.vibrate(30);
+      }
+  
+      setData(newData);
     }
-
-    setData(newData);
   };
+  
 
 
   return (
