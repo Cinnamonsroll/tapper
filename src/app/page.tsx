@@ -1,19 +1,11 @@
 "use client"
 import { DrawerSettings } from "@/components/drawer";
+import { colors } from "@/utils/colors";
 import React, { useEffect, useState } from "react";
 import { Drawer } from "vaul";
-export type Color = {
-  [key: string]: string
-}
-export const colors: Color = {
-  red: "bg-red-600",
-  rose: "bg-rose-600",
-  orange: "bg-orange-600",
-  yellow: "bg-yellow-600",
-  green: "bg-green-600",
-  blue: "bg-blue-600",
-  purple: "bg-violet-600",
-}
+
+
+
 const defaultData = {
   theme: {
     background: "purple",

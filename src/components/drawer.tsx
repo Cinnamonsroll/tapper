@@ -1,11 +1,11 @@
-import { Color, colors } from "@/app/page";
+import { colors } from "@/utils/colors";
 import { Drawer } from "vaul";
 
 export function DrawerSettings({ data, setData }: {
     data: any,
     setData: any
 }) {
-    const drawerColors: Color = {
+    const drawerColors = {
         red: "bg-red-300",
         rose: "bg-rose-300",
         orange: "bg-orange-300",
@@ -23,7 +23,7 @@ export function DrawerSettings({ data, setData }: {
             <Drawer.Content
                 data-testid="content"
                 className=
-                    {`bg-opacity-50  ${drawerColors[data.theme.background]} flex fixed p-6 rounded-t-[10px] flex-col h-[50%] bottom-0 left-0 right-0`}
+                    {`bg-opacity-50  ${(drawerColors as any)[data.theme.background]} flex fixed p-6 rounded-t-[10px] flex-col h-[50%] bottom-0 left-0 right-0`}
                 
             >
                 <div className={"w-full h-full flex rounded-full gap-8 flex-col"}>
