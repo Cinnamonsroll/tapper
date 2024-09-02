@@ -6,23 +6,49 @@ export function DrawerSettings({ data, setData }: {
     setData: any
 }) {
     const colors: {[key: string]: string} = {
-        "red": "bg-red-600",
-        "rose": "bg-rose-600",
-        "orange": "bg-orange-600",
-        "yellow": "bg-yellow-600",
-        "green": "bg-green-600",
-        "blue": "bg-blue-600",
-        "purple": "bg-violet-600",
-      }
+        slate: "bg-slate-600",
+        gray: "bg-gray-600",
+        zinc: "bg-zinc-600",
+        red: "bg-red-600",
+        orange: "bg-orange-600",
+        amber: "bg-amber-600",
+        yellow: "bg-yellow-600",
+        lime: "bg-lime-600",
+        green: "bg-green-600",
+        emerald: "bg-emerald-600",
+        teal: "bg-teal-600",
+        cyan: "bg-cyan-600",
+        sky: "bg-sky-600",
+        blue: "bg-blue-600",
+        indigo: "bg-indigo-600",
+        violet: "bg-violet-600",
+        purple: "bg-purple-600",
+        fuchsia: "bg-fuchsia-600",
+        pink: "bg-pink-600",
+        rose: "bg-rose-600",
+      };
     const drawerColors = {
+        slate: "bg-slate-300",
+        gray: "bg-gray-300",
+        zinc: "bg-zinc-300",
         red: "bg-red-300",
-        rose: "bg-rose-300",
         orange: "bg-orange-300",
+        amber: "bg-amber-300",
         yellow: "bg-yellow-300",
+        lime: "bg-lime-300",
         green: "bg-green-300",
+        emerald: "bg-emerald-300",
+        teal: "bg-teal-300",
+        cyan: "bg-cyan-300",
+        sky: "bg-sky-300",
         blue: "bg-blue-300",
-        purple: "bg-violet-300",
-    }
+        indigo: "bg-indigo-300",
+        violet: "bg-violet-300",
+        purple: "bg-purple-300",
+        fuchsia: "bg-fuchsia-300",
+        pink: "bg-pink-300",
+        rose: "bg-rose-300",
+      };
     return (
         <>
             <Drawer.Overlay
