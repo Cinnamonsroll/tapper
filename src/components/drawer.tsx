@@ -1,11 +1,13 @@
-
 import { Drawer } from "vaul";
 
-export function DrawerSettings({ data, setData }: {
+export function DrawerSettings({
+    data,
+    setData
+}: {
     data: any,
     setData: any
 }) {
-    const colors: {[key: string]: string} = {
+    const colors: { [key: string]: string } = {
         slate: "bg-slate-600",
         gray: "bg-gray-600",
         zinc: "bg-zinc-600",
@@ -26,7 +28,7 @@ export function DrawerSettings({ data, setData }: {
         fuchsia: "bg-fuchsia-600",
         pink: "bg-pink-600",
         rose: "bg-rose-600",
-      };
+    };
     const drawerColors = {
         slate: "bg-slate-300",
         gray: "bg-gray-300",
@@ -48,7 +50,7 @@ export function DrawerSettings({ data, setData }: {
         fuchsia: "bg-fuchsia-300",
         pink: "bg-pink-300",
         rose: "bg-rose-300",
-      };
+    };
     return (
         <>
             <Drawer.Overlay
@@ -57,9 +59,7 @@ export function DrawerSettings({ data, setData }: {
             />
             <Drawer.Content
                 data-testid="content"
-                className=
-                    {`bg-opacity-50  ${(drawerColors as any)[data.theme.background]} flex fixed p-6 rounded-t-[10px] flex-col h-[50%] bottom-0 left-0 right-0`}
-                
+                className={`bg-opacity-50 ${(drawerColors as any)[data.theme.background]} flex fixed p-6 rounded-t-[10px] flex-col h-[50%] bottom-0 left-0 right-0`}
             >
                 <div className={"w-full h-full flex rounded-full gap-8 flex-col"}>
                     <div className={"rounded-full bg-zinc-300 mx-auto w-12 h-1.5"} />
@@ -75,22 +75,32 @@ export function DrawerSettings({ data, setData }: {
                                 <div className="w-3/4 bg-white bg-opacity-70 h-px rounded-full"></div>
                             </div>
                             <div className="flex gap-3 p-2">
-                                <div className={`bg-white p-3 rounded-full border-2 transition-colors ${data.theme.text === "white" ? "border-green-500" : "border-transparent"}`} onClick={() => {
-                                    setData({
-                                        ...data, theme: {
-                                            ...data.theme,
-                                            text: "white"
-                                        }
-                                    })
-                                }}></div>
-                                <div className={`bg-black p-3 rounded-full border-2 transition-colors ${data.theme.text === "black" ? "border-green-500" : "border-transparent"}`} onClick={() => {
-                                    setData({
-                                        ...data, theme: {
-                                            ...data.theme,
-                                            text: "black"
-                                        }
-                                    })
-                                }}></div>
+                                <div
+                                    className={`bg-white p-3 rounded-full border-2 transition-colors ${data.theme.text === "white" ? "border-green-500" : "border-transparent"
+                                        }`}
+                                    onClick={() => {
+                                        setData({
+                                            ...data,
+                                            theme: {
+                                                ...data.theme,
+                                                text: "white",
+                                            },
+                                        });
+                                    }}
+                                ></div>
+                                <div
+                                    className={`bg-black p-3 rounded-full border-2 transition-colors ${data.theme.text === "black" ? "border-green-500" : "border-transparent"
+                                        }`}
+                                    onClick={() => {
+                                        setData({
+                                            ...data,
+                                            theme: {
+                                                ...data.theme,
+                                                text: "black",
+                                            },
+                                        });
+                                    }}
+                                ></div>
                             </div>
                         </div>
                         <div className="flex p-2 flex-col">
@@ -98,19 +108,25 @@ export function DrawerSettings({ data, setData }: {
                                 <p className="text-white font-bold">Background Color</p>
                                 <div className="w-3/4 bg-white bg-opacity-70 h-px rounded-full"></div>
                             </div>
-                            <div className="flex gap-3 p-2">
+                            <div className="gap-3 p-2 grid grid-cols-6 w-full">
                                 {Object.keys(colors).map((color: string, index: number) => {
-                                    return <div className={`${colors[color]} p-3 rounded-full border-2 transition-colors ${data.theme.background === color ? "border-green-500" : "border-transparent"}`} onClick={() => {
-                                        setData({
-                                            ...data, theme: {
-                                                ...data.theme,
-                                                background: color
-                                            }
-                                        })
-                                    }}></div>
+                                    return (
+                                        <div
+                                            key={index}
+                                            className={`${colors[color]} w-7 h-7 rounded-full border-2 transition-colors ${data.theme.background === color ? "border-green-500" : "border-transparent"
+                                                }`}
+                                            onClick={() => {
+                                                setData({
+                                                    ...data,
+                                                    theme: {
+                                                        ...data.theme,
+                                                        background: color,
+                                                    },
+                                                });
+                                            }}
+                                        ></div>
+                                    );
                                 })}
-
-
                             </div>
                         </div>
                     </div>
